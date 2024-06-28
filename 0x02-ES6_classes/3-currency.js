@@ -11,7 +11,7 @@ export default class Currency {
 
   /* setter for the code attribute */
   set code(value) {
-    if (typeof value !== 'string') {
+    if (typeof (value) !== 'string') {
       throw new TypeError('Code must be a string');
     } else {
       this._code = value;
@@ -25,7 +25,7 @@ export default class Currency {
 
   /* setter for the name attribute */
   set name(value) {
-    if (typeof value !== 'string') {
+    if (typeof (value) !== 'string') {
       throw new TypeError('Name must be a string');
     } else {
       this._name = value;
