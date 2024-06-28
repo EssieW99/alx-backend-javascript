@@ -16,12 +16,12 @@ export default class Pricing {
     if (typeof value !== 'number') {
       throw new TypeError('Amount must be a number');
     }
-    this.amount = value;
+    this._amount = value;
   }
 
   /* getter for the currency attribute */
   get currency() {
-    return this.currency;
+    return this._currency;
   }
 
   /* setter for the name attribute */
@@ -29,7 +29,7 @@ export default class Pricing {
     if (!(value instanceof Currency)) {
       throw new TypeError('Currency must be an instance of Currency class');
     }
-    this.currency = value;
+    this._currency = value;
   }
 
   displayFullPrice() {
