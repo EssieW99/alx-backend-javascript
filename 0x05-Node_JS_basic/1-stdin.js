@@ -11,10 +11,9 @@ process.stdin.on('data', (data) => {
   }
 
   if (isInteractive) {
-    process.stdin.on('end', () => {
-      process.exit();
-    });
+    process.exit();
   }
+
   process.stdin.on('end', () => {
     if (!isInteractive) {
       console.log('This important software is now closing');
