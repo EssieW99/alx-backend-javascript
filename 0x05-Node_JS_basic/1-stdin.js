@@ -1,16 +1,23 @@
 // set encoding for stdin to 'utf-8' to receive string input
 process.stdin.setEncoding('utf-8');
 
-console.log('Welcome to Holberton School, what is your name?');
+const isInteractive = process.stdin.isTTY;
 
+console.log('Welcome to Holberton School, what is your name?');
 // listen for the 'data' event
 process.stdin.on('data', (data) => {
   if (data !== null) {
     console.log(`Your name is: ${data.trim()}`);
   }
-});
 
-// listen for 'end' event
-process.stdin.on('end', () => {
-  console.log('This important software is now closing');
+  if (isInteractive) {
+    process.stdin.on('end', () => {
+      process.exit();
+    });
+  }
+  process.stdin.on('end', () => {
+    if (!isInteractive) {
+      console.log('This important software is now closing');
+    }
+  });
 });
