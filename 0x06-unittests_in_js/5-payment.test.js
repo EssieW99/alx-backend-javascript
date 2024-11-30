@@ -12,18 +12,18 @@ describe('sendPaymentRequestToApi', function() {
   });
 
   afterEach(function() {
-    consoleSpy.restre();
+    consoleSpy.restore();
   });
 
   it('logs the correct total for 100 and 20', function() {
     sendPaymentRequestToApi(100, 20);
-    expect.calledOnce(consoleSpy).to.be.true;
-    expect.calledWithExactly(consoleSpy, 'The total is: 120').to.be.true;
+    expect(consoleSpy.calledOnce).to.be.true;
+    expect(consoleSpy.calledWithExactly('The total is: 120')).to.be.true;
   });
 
   it('logs the correct total for 10 and 10', function() {
     sendPaymentRequestToApi(10, 10);
-    expect.calledOnce(consoleSpy).to.be.true;
-    expect.calledWithExactly(consoleSpy, 'The total is: 20').to.be.true;
+    expect(consoleSpy.calledOnce).to.be.true;
+    expect(consoleSpy.calledWithExactly('The total is: 20')).to.be.true;
   });
 });
