@@ -1,3 +1,4 @@
+const { expect} = require('chai');
 const sinon = require('sinon');
 const sendPaymentRequestToApi = require('./4-payment');
 const Utils = require('./utils');
@@ -16,13 +17,13 @@ describe('sendPaymentRequestToApi', function() {
 
   it('logs the correct total for 100 and 20', function() {
     sendPaymentRequestToApi(100, 20);
-    sinon.assert.calledOnce(consoleSpy);
-    sinon.assert.calledWithExactly(consoleSpy, 'The total is: 120');
+    expect.calledOnce(consoleSpy).to.be.true;
+    expect.calledWithExactly(consoleSpy, 'The total is: 120').to.be.true;
   });
 
   it('logs the correct total for 10 and 10', function() {
     sendPaymentRequestToApi(10, 10);
-    sinon.assert.calledOnce(consoleSpy);
-    sinon.assert.calledWithExactly(consoleSpy, 'The total is: 20');
+    expect.calledOnce(consoleSpy).to.be.true;
+    expect.calledWithExactly(consoleSpy, 'The total is: 20').to.be.true;
   });
-})
+});
